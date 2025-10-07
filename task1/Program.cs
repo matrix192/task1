@@ -29,7 +29,6 @@
                     if (b == 0)
                     {
                         Console.WriteLine("На ноль делить нельзя");
-
                     }
                     ans = a / b;
                     break;
@@ -40,7 +39,12 @@
                     break;
 
             }
+            if (b != 0)
+            {
+
             Console.WriteLine($"Ответ: {ans}");
+
+            }
 
             Console.WriteLine("Нажмите любую клавишу для выполнения программы еще раз");
             Console.WriteLine("Нажмите Esc для выхода из программы");
