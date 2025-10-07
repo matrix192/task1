@@ -1,4 +1,6 @@
-﻿internal class Program
+﻿using System.Numerics;
+
+internal class Program
 {
     private static void Main(string[] args)
     {
@@ -10,7 +12,14 @@
             Console.Write("Введите первое число: ");
             double a = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Введите арифметическое действие: ");
+
             string operation = Console.ReadLine()!;
+            while (operation != "+" && operation != "-" && operation != "*" && operation != "/")
+            {
+                Console.WriteLine("Неизвестная операция. Используйте (+, -, *, /)");
+                operation = Console.ReadLine()!;
+
+            }
             Console.WriteLine("Введите второе число: ");
             double b = Convert.ToDouble(Console.ReadLine());
 
@@ -31,11 +40,6 @@
                         Console.WriteLine("На ноль делить нельзя");
                     }
                     ans = a / b;
-                    break;
-                default:
-                    Console.WriteLine("Неизвестная операция");
-
-
                     break;
 
             }
