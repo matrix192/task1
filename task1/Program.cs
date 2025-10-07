@@ -9,8 +9,14 @@ internal class Program
             Console.Clear();
 
             double ans = 0;
-            Console.Write("Введите первое число: ");
-            double a = Convert.ToDouble(Console.ReadLine());
+            double a;
+            while (true)
+            {
+                Console.Write("Введите первое число: ");
+                if (double.TryParse(Console.ReadLine(), out a))
+                    break;
+                Console.WriteLine("Ошибка! Введите число правильно.");
+            }
             Console.WriteLine("Введите арифметическое действие: ");
 
             string operation = Console.ReadLine()!;
@@ -20,8 +26,14 @@ internal class Program
                 operation = Console.ReadLine()!;
 
             }
-            Console.WriteLine("Введите второе число: ");
-            double b = Convert.ToDouble(Console.ReadLine());
+            double b;
+            while (true)
+            {
+                Console.Write("Введите второе число: ");
+                if (double.TryParse(Console.ReadLine(), out b))
+                    break;
+                Console.WriteLine("привет");
+            }
 
             switch (operation)
             {
