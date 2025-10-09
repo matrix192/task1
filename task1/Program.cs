@@ -32,12 +32,18 @@ internal class Program
             Console.Write("Введите арифметическое действие: ");
 
             string operation = Console.ReadLine()!;
-            while (operation != "+" && operation != "-" && operation != "*" && operation != "/")
+            string[] operations = {"+", "-", "*", "/"};
+            bool isCorrectOperation = operations.Contains(operation) && operation.Length == 1; 
+
+            while (!isCorrectOperation)
             {
+
                 Console.WriteLine("Неизвестная операция. Используйте (+, -, *, /)");
                 operation = Console.ReadLine()!;
+                isCorrectOperation = operations.Contains(operation) && operation.Length == 1;
 
             }
+
             double b = EnterNumbers("Введите второе число: ");
 
             switch (operation)
