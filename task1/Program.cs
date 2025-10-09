@@ -2,6 +2,23 @@
 
 internal class Program
 {
+    private static double EnterNumbers(string message)
+    {
+
+        while (true)
+        {
+            double number;
+            Console.Write(message);
+            if (double.TryParse(Console.ReadLine(), out number))
+            {
+                return number;
+            }
+            Console.WriteLine("Введите число!");
+
+        }
+        
+    }
+
     private static void Main(string[] args)
     {
         while (true)
@@ -9,15 +26,10 @@ internal class Program
             Console.Clear();
 
             double ans = 0;
-            double a;
-            while (true)
-            {
-                Console.Write("Введите первое число: ");
-                if (double.TryParse(Console.ReadLine(), out a))
-                    break;
-                Console.WriteLine("Ошибка! Введите число правильно.");
-            }
-            Console.WriteLine("Введите арифметическое действие: ");
+
+            double a = EnterNumbers("Введите первое число: ");
+
+            Console.Write("Введите арифметическое действие: ");
 
             string operation = Console.ReadLine()!;
             while (operation != "+" && operation != "-" && operation != "*" && operation != "/")
@@ -26,14 +38,7 @@ internal class Program
                 operation = Console.ReadLine()!;
 
             }
-            double b;
-            while (true)
-            {
-                Console.Write("Введите второе число: ");
-                if (double.TryParse(Console.ReadLine(), out b))
-                    break;
-                Console.WriteLine("привет");
-            }
+            double b = EnterNumbers("Введите второе число: ");
 
             switch (operation)
             {
@@ -50,6 +55,7 @@ internal class Program
                     if (b == 0)
                     {
                         Console.WriteLine("На ноль делить нельзя");
+                        break;
                     }
                     ans = a / b;
                     break;
